@@ -1,0 +1,45 @@
+
+.deontay-header {
+    background-color: #000000;
+
+    /* FONT */
+    font-size: calc(10px + 2vmin);
+    color: white;
+
+    /* SIZE + POSITION */
+    height: 20vh;
+    width: 100%;
+}
+
+.parted-logo {
+    /* FLEX */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    /* SIZE + POSITION */
+    height: 70%;
+}
+
+#logoImg {
+    width: 22.5%;
+}
+
+#logoText{
+    width: 50%;
+    margin-top: 12.5px;
+}
+
+.deontay-header input{
+    border-radius: 100px;
+    width: 75%;
+    margin-bottom: 5px;
+    height: 28px;
+    background-color: var(--deontay-grey);
+    font-family: 'Noto Sans';
+    color: var(--deontay-white);
+    padding-left: 30px;
+    background: url(../images/magnifying-glass.png) no-repeat scroll 7px 7px;
+    background-size: 20px;
+}

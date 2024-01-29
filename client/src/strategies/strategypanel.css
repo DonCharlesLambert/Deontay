@@ -1,0 +1,64 @@
+.strategiesPanel{
+    padding: 10px;
+    height: 80px;
+    background-color: var(--deontay-grey);
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+.panelTitleDiv{
+    display: flex;
+    height: 40%;
+    align-items: center;
+}
+
+.panelTitle{
+    font-weight: 500;
+}
+
+.panelLogo{
+    height: 100%;
+    margin-right: 7.5px;
+}
+
+.panelDescription{
+    margin: 2px 0px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.panelReturnsDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.panelReturnsText{
+    margin: 0px;
+    font-size: 16px;
+}
+
+.panelFiguresDiv{
+    display: flex;
+    width: 45%;
+    justify-content: space-around;
+    align-items: end;
+}
+
+.panelReturnsFigure{
+    margin: 0px;
+    font-family: 'Montserrat';
+}
+.panelReturnsChange{
+    margin: 0px;
+    font-family: 'Montserrat';
+    font-size: 12px;
+}
+
+.panelNegative{
+    color: var(--deontay-red);
+}
+
+.panelPositive{
+    color: var(--deontay-green);
+}
