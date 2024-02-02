@@ -1,0 +1,6 @@
+.slide-in{
+    opacity: 0;
+    margin-right: "100px";
+    transition-property: margin-right, opacity;
+    transition-duration: 0.7s;
+}
