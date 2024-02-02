@@ -1,0 +1,92 @@
+.review {
+    color: var(--deontay-white);
+}
+
+.headerDiv{
+    margin-top: 5%;
+    margin-left: 5%;
+
+}
+
+.titleDiv {
+    display: flex;
+    align-items: center;
+}
+
+.backButton{
+    margin: 0px 5px 0px 10px;
+    text-align: left;
+    font-weight: 1000;
+    font-size: 14px;
+}
+
+.title{
+    font-weight: 500;
+    font-size: 32px;
+    align-self: flex-end;
+    margin: 0px 0px 0px 1px;
+}
+
+.logo{
+    height: 5vh;
+    margin-right: 7.5px;
+    align-self: flex-end;
+}
+
+.description{
+    font-weight: 250;
+    font-size: 14px;
+    margin: 1px;
+    text-align: left;
+}
+
+.offsetButton{
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--deontay-grey);
+    color: #FFFFFF;
+    border-radius: 25%;
+    padding: 8px;
+    border: none;
+}
+
+.currentOffsetButton{
+    font-size: 16px;
+    font-weight: 500;
+    background: #FFFFFF;
+    color: --var(deontay-grey);
+    border-radius: 25%;
+    padding: 8px;
+    border: none;
+}
+
+.buttonDiv{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.analyticsDiv{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.analyticRow{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.analyticName{
+    font-weight: 500;
+    text-align: left;
+    margin: 0px 1px;
+}
+
+
+.analyticValue{
+    font-weight: 200;
+    text-align: left;
+    margin: 0px 1px;
+    font-family: 'Montserrat';
+}

@@ -30,7 +30,7 @@
 .panelReturnsDiv{
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .panelReturnsText{
@@ -42,7 +42,7 @@
     display: flex;
     width: 45%;
     justify-content: space-around;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .panelReturnsFigure{

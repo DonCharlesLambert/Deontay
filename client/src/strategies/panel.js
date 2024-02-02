@@ -1,20 +1,21 @@
-import './strategypanel.css'
+import './styles/panel.css'
 
-function StrategyPanel({imagesrc, name, description, returns, change}) {
+function StrategyPanel({selectStrategy, strategy}) {
+  const change = strategy.data.analytics.percentageReturns.All
   const changeClass = change < 0 ? "panelNegative" : "panelPositive"
   const changeArrow = change < 0 ? "▼" : "▲"
   const changeSign = change < 0 ? "" : "+"
   return (
-    <div className="strategiesPanel">
+    <div className="strategiesPanel" onClick={() => selectStrategy(strategy)}>
         <div className="panelTitleDiv">
-            <img src={imagesrc} className="panelLogo" alt={`logo for ${name} strategy`}/>
-            <h3 className="panelTitle"> {name}</h3>
+            <img src={strategy.imagesrc} className="panelLogo" alt={`logo for ${strategy.name} strategy`}/>
+            <h3 className="panelTitle"> {strategy.name}</h3>
         </div>
-        <p className="panelDescription"> {description} </p>
+        <p className="panelDescription"> {strategy.description} </p>
         <div className="panelReturnsDiv">
             <p className="panelReturnsText"> Returns </p>
             <div className="panelFiguresDiv">
-                <p className="panelReturnsFigure"> {returns} </p>
+                <p className="panelReturnsFigure"> {strategy.data.analytics.nominalReturns.All} </p>
                 <p className={`panelReturnsChange ${changeClass}`}> {changeArrow} {changeSign}{change}% </p>
             </div>
         </div>
