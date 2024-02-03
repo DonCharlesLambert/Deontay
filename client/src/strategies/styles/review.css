@@ -90,3 +90,10 @@
     margin: 0px 1px;
     font-family: 'Montserrat';
 }
+
+.chartDiv{
+    width: 90%;
+    background-color: var(--deontay-grey);
+    border-radius: 5%;
+    margin: 20px auto;
+}

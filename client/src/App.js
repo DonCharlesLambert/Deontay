@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   const [strategy, selectStrategy] = useState({})
-  const Menu = () => <StrategiesList selectStrategy={selectStrategy}/>
+  const Menu = () => <SlideIn><StrategiesList selectStrategy={selectStrategy}/></SlideIn>
   const Review = () => <SlideIn><StrategiesReview strategy={strategy} goBack={selectStrategy}/></SlideIn>
   const Screen =  Object.keys(strategy).length === 0 ? Menu : Review
   return (

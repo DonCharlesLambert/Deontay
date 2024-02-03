@@ -1,6 +1,6 @@
 import './styles/review.css'
 import React, { useState } from 'react';
-
+import Chart from '../lib/charts'
 
 function StrategiesReview({strategy, goBack}) {
   const [offset, setOffset] = useState("All")
@@ -41,6 +41,9 @@ function StrategiesReview({strategy, goBack}) {
                 <p className="analyticName"> Max Drawdown </p>
                 <p className="analyticValue"> {strategy.data.analytics.maxDrawdown[offset] + "%"}</p>
             </div>
+        </div>
+        <div className="chartDiv">
+            <Chart data={strategy.data.timeseries[offset]}/>
         </div>
     </div>
   );

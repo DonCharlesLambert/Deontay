@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './slide-in.css'
+import './styles/slide-in.css'
 
 function SlideIn({children}) {
     const [styles, setStyles] = useState({});
