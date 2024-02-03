@@ -4,12 +4,14 @@ import StrategyPanel from './panel'
 // import will need to be removed -- find why to connect on the backend
 import STRATEGIES from './strategies'
 
-function StrategiesList({selectStrategy}) {
+function StrategiesList({searchString, selectStrategy}) {
+  const strategies = searchString === "" ? STRATEGIES : STRATEGIES.filter((strategy) => strategy.name.toLowerCase().includes(searchString.toLowerCase()))
   return (
     <div className="strategiesList">
       <h1> Strategies </h1>
-      {STRATEGIES.map((strategy) => (
+      {strategies.map((strategy) => (
         <StrategyPanel
+          key={Math.random()}
           selectStrategy={selectStrategy}
           strategy={strategy}
         />

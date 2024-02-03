@@ -1,8 +1,15 @@
+import { useState, useEffect } from 'react';
 import logo from '../images/logonn-transparent.png';
 import logoText from '../images/texthd-transparent.png';
 import './header.css'
 
-function Header() {
+function Header({searchString, setSearchString}) {
+  const [localString, setLocalString] = useState(searchString);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setSearchString(localString), 500);
+    return () => clearTimeout(timeoutId);
+  }, [localString, setSearchString])
+
   return (
     <div>
       <header className="deontay-header">
@@ -11,9 +18,11 @@ function Header() {
             <img id={"logoText"} src={logoText} alt="Deontay, expert Advisor" />
         </div>
         <input
+            key={"dontChange"}
             type="text"
-            placeHolder={"Search for Strategies"}
-            onChange={null}
+            placeholder={"Search for Strategies"}
+            value={localString}
+            onChange={(input) => setLocalString(input.target.value)}
          />
       </header>
     </div>

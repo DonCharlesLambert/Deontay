@@ -45,7 +45,7 @@ const STRATEGIES = [
     },
     {
         imagesrc: retracelogo,
-        name: "Retrace Enry",
+        name: "Retrace Entry",
         description: "Trend-following strategy entering on retracement.",
         data: {
             offsets: ["All", "1Y", "6M", "1M"],
