@@ -1,11 +1,28 @@
+import { useState, useEffect } from 'react'
 import './styles/list.css'
+import { STRATEGIES_ENDPOINT } from '../api/const'
 import StrategyPanel from './panel'
 
-// import will need to be removed -- find why to connect on the backend
-import STRATEGIES from './strategies'
-
 function StrategiesList({searchString, selectStrategy}) {
-  const strategies = searchString === "" ? STRATEGIES : STRATEGIES.filter((strategy) => strategy.name.toLowerCase().includes(searchString.toLowerCase()))
+  const [strategies, setStrategies] = useState([])
+  useEffect(() => {
+    fetch(STRATEGIES_ENDPOINT, {
+        mode: 'cors',
+        method: 'GET',
+        headers: {'Content-Type':'application/json'}
+    }).then(
+      (response) => response.json()
+    ).then(
+      (data) => {
+        setStrategies(Object.values(data).filter((stratData) => {
+          if(searchString === ""){return true}
+          if(stratData.name.toLowerCase().includes(searchString.toLowerCase())){return true}
+          return false
+        }))
+      }
+    )
+  }, [searchString])
+
   return (
     <div className="strategiesList">
       <h1> Strategies </h1>

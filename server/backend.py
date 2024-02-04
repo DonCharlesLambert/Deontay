@@ -1,6 +1,6 @@
 import pandas as pd
 from datetime import datetime
-from const import Coins, DateFormats, MARKET_DATA_MAP, MarketDataColumns
+from const import Coins, DateFormats, MARKET_DATA_MAP, MarketDataColumns, STRATEGIES
 
 class MarketDataBackend():
     def __init__(self):
@@ -25,3 +25,10 @@ class MarketDataBackend():
         if not dateString: return None
         dateFormat = dateFormat or DateFormats.API
         return datetime.strptime(dateString, dateFormat)
+    
+class StrategiesBackend():
+    def __init__(self):
+        pass
+
+    def getStrategies(self):
+        return STRATEGIES
