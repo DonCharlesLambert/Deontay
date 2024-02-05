@@ -14,19 +14,6 @@ class BaseHandler(tornado.web.RequestHandler):
         self.set_status(204)
         self.finish()
 
-
-class MarketDataHandler(BaseHandler):
-    def initialize(self):
-        self.backend = MarketDataBackend()
-
-    def get(self):
-        # 'http://localhost:8888/get-market-data?symbol=BTC&startDate=2022-02-28&endDate=2022-03-01'
-        symbol = self.get_argument(Params.SYMBOL, None, True)
-        startDate = self.get_argument(Params.START_DATE, None, True)
-        endDate = self.get_argument(Params.END_DATE, None, True)
-        marketData = self.backend.getMarketData(symbol=symbol, startDate=startDate, endDate=endDate)
-        self.write(marketData)
-
 class StrategiesHandler(BaseHandler):
     def initialize(self):
         self.backend = StrategiesBackend()
@@ -40,7 +27,6 @@ class StrategiesHandler(BaseHandler):
 
 def make_app():
     return tornado.web.Application([
-        (r"/get-market-data", MarketDataHandler),
         (r"/get-strategies", StrategiesHandler),
     ])
 

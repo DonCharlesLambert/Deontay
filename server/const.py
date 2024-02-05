@@ -2,9 +2,6 @@
 from enum import Enum
 from media.logos import ALPHA_LOGO, RETRACE_LOGO, BIRD_LOGO
 
-class Coins(Enum):
-    BITCOIN = "BTC"
-
 class DateFormats():
     CSV = "%Y-%m-%d %H:%M:%S"
     API = "%Y-%m-%d"
@@ -23,10 +20,10 @@ class MarketDataColumns:
     LOW = "low"
     CLOSE = "close"
 
-MARKET_DATA_MAP = {
-    Coins.BITCOIN: 'data/BTC-Daily.csv'
-}
-
+# This will become a list of strategy classes, each will have its own attributes
+# from quant.alphazero import AlphaZero
+# STRATEGIES = [AlphaZero]
+    
 STRATEGIES = {
     "Alpha Zero": {
         "imagesrc": ALPHA_LOGO,
