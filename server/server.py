@@ -1,6 +1,6 @@
 import asyncio
 import tornado
-from backend import MarketDataBackend, StrategiesBackend
+from backend import StrategiesBackend
 from const import Params
 
 class BaseHandler(tornado.web.RequestHandler):
