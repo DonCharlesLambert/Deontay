@@ -1,32 +1,27 @@
+from backtesting import Strategy
 from .backtest import DeontayStrat
 from .const import Assets
-from .logos import ALPHA_LOGO
+from .logos import BIRD_LOGO
 
-class AlphaZero(DeontayStrat):
+class EarlyBird(DeontayStrat):
     """ 
-    Alpha Zero is a BUY and HOLD strategy for bitcoin 
-    We regard the performance of bitcoin as the benchmark,
-    thus the performance of this strategy with regard to Alpha is zero
-
-    Other strategies can be viewed as methods to hedge against the
-    volatility and market risk of bitcoin despite providing
-    weaker returns.
+    Early Bird detailed description...
     """
     ASSET = Assets.BITCOIN
     EXCLUSIVE_ORDERS = True
 
     @staticmethod
     def name():
-        return "Alpha Zero"
+        return "Early Bird"
 
     @staticmethod
     def image():
-        return ALPHA_LOGO
+        return BIRD_LOGO
     
     @staticmethod
     def description():
-        return "Dollar-cost average strategy for a bitcoin believer."
-
+        return "Anticipates trends through reversal patterns."
+    
     @staticmethod
     def data():
         return {
@@ -63,6 +58,7 @@ class AlphaZero(DeontayStrat):
         """
         If no position exists, open one.
         Do not close this position.
+        -- WILL CHANGE
         """
         if not self.position:
             self.buy()

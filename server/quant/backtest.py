@@ -5,8 +5,26 @@ import yfinance
 
 class DeontayStrat(Strategy):
     EXCLUSIVE_ORDERS = False
-    def init(self):
-        pass
+
+    @staticmethod
+    def init():
+        raise NotImplementedError("Cannot call init func from DeontayStrat, implement method in subclass")
+
+    @staticmethod
+    def name():
+        raise NotImplementedError("Cannot call name func from DeontayStrat, implement method in subclass")
+
+    @staticmethod
+    def image():
+        raise NotImplementedError("Cannot call image func from DeontayStrat, implement method in subclass")
+    
+    @staticmethod
+    def description():
+        return NotImplementedError("Cannot call description func from DeontayStrat, implement method in subclass")
+    
+    @staticmethod
+    def data():
+        return NotImplementedError("Cannot call data func from DeontayStrat, implement method in subclass")
 
     def backtest(self, startDate="", cash=100000, commission=0.002):
         startDate = startDate or (datetime.now() - relativedelta(years=5)).strftime("%Y-%m-%d")
