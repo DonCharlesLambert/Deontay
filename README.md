@@ -4,6 +4,7 @@
  - [x] Include meta data on base class too 
  - [x] Replace STRATEGIES dict with list of Strategies classes
  - [x] Remove server.media.logos
+ - [ ] SEPARATE INTO MICROSERVICES ?? (base, strategies, tsanalytics)
  - [ ] Rename quant folder to strategies, make another folder called ts analytics
  - [ ] Create methods to calculate analytics
  - [ ] Write method to cache results and analytics
