@@ -1,7 +1,6 @@
 import asyncio
 import tornado
 from backend import StrategiesBackend
-from const import Params
 
 class BaseHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
@@ -24,6 +23,7 @@ class StrategiesHandler(BaseHandler):
         self.write(strategies)
 
     
+# add a warmup that checks if strategy results are cached
 
 def make_app():
     return tornado.web.Application([

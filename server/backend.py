@@ -1,4 +1,6 @@
 from const import STRATEGIES, StrategyResponse
+import os
+from datetime import datetime
 
 class StrategiesBackend():
     def __init__(self):
@@ -19,8 +21,12 @@ class BacktestBackend():
     def dailyBacktest(self):
         for strategy in STRATEGIES:
             backtestResult = strategy.backtest(strategy)
-            # run bt as above
-            # store raw bt in quant/cache/{stratName}/btObj
+            equityCurve = backtestResult._equity_curve
+            folderPath = "cache/{}/".format(strategy.name())
+            fileName = datetime.today().strftime("%Y_%m_%d") + ".csv"
+            if not os.path.exists(folderPath):
+                os.mkdir(folderPath)
+            equityCurve.to_csv(folderPath + fileName)
             # run analytics on bt
             # store in same folder
             
