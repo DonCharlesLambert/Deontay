@@ -1,7 +1,7 @@
 
-from quant.alphazero import AlphaZero
-from quant.retraceentry import RetraceEntry
-from quant.earlybird import EarlyBird
+from strategies.alphazero import AlphaZero
+from strategies.retraceentry import RetraceEntry
+from strategies.earlybird import EarlyBird
 
 class DateFormats():
     CSV = "%Y-%m-%d %H:%M:%S"
