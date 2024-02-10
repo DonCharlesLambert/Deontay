@@ -19,34 +19,25 @@ class BaseAnalyticCalculator:
     def _getOffsets(self):
         return [offset for offset in list(Offsets)]
 
-    def _storeInCache(self, analyticsResult):
-        resultJson = json.dumps(analyticsResult)
-        analyticName = self._getAnalyticName()
-        cacheFolder = "cache/{}/{}.json".format(self.stratName, analyticName)
-        with open(os.path.join(PATH, cacheFolder), "w") as resultFile:
-            resultFile.write(resultJson)
-
     def _run(self, equityCurve):
         return NotImplementedError("Cannot call run from BaseAnalyticCalculator, implement method in subclass")
     
     def run(self):
         res = {}
         for offset in self._getOffsets():
-            equityCurve = BaseAnalyticCalculator._sliceEquityCurve(offset, deepcopy(self.stratCurve))
+            equityCurve = self._sliceEquityCurve(offset, deepcopy(self.stratCurve))
             offsetRes = self._run(equityCurve)
             res[offset.value] = offsetRes
         self._storeInCache(res)
 
-    @staticmethod
-    def _sliceEquityCurve(offset, curve):
+    def _sliceEquityCurve(self, offset, curve):
         slicedCurve = curve
         timePeriod = BaseAnalyticCalculator._offsetToTimePeriod(offset)
         if timePeriod[TimePeriod.YEARS] is not None and timePeriod[TimePeriod.MONTHS] is not None:
             periodStart = (datetime.now() - relativedelta(years=timePeriod[TimePeriod.YEARS], months=timePeriod[TimePeriod.MONTHS]))
             curve = curve.reset_index()
-            # print(curve['Date'])
-            # curve['Date'] = curve['Date'].apply(lambda dateString: datetime.strptime(dateString, "%Y-%m-%d"))
             slicedCurve = curve.loc[curve['Date'] > periodStart]
+        self._storeInCache(slicedCurve.to_csv(), offset.value, jsonDump=False)
         return slicedCurve
     
     @staticmethod
@@ -59,3 +50,11 @@ class BaseAnalyticCalculator:
         }
         timeperiod = timePeriodMap[offset]
         return {TimePeriod.YEARS: timeperiod[0], TimePeriod.MONTHS: timeperiod[1]}
+    
+    
+    def _storeInCache(self, analyticsResult, analyticName=None, jsonDump=True):
+        resultJson = json.dumps(analyticsResult) if jsonDump else analyticsResult
+        analyticName = analyticName or self._getAnalyticName()
+        cacheFolder = "cache/{}/{}.json".format(self.stratName, analyticName)
+        with open(os.path.join(PATH, cacheFolder), "w") as resultFile:
+            resultFile.write(resultJson)

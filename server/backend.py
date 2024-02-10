@@ -24,11 +24,6 @@ class BacktestBackend():
             strategy = StrategyClass()
             backtestResult = strategy.backtest()
             equityCurve = backtestResult._equity_curve
-            folderPath = "cache/{}/".format(strategy.name())
-            fileName = datetime.today().strftime("%Y_%m_%d") + ".csv"
-            if not os.path.exists(folderPath):
-                os.mkdir(folderPath)
-            equityCurve.to_csv(folderPath + fileName)
             for AnalyticClass in ANALYTICS:
                 analytic = AnalyticClass(strategy.name(), equityCurve)
                 analytic.run()

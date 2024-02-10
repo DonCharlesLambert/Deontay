@@ -4,6 +4,7 @@ from dateutil.relativedelta import relativedelta
 import yfinance
 from .const import DataEnum
 import json
+import pandas as pd
 
 class DeontayStrat(Strategy):
     EXCLUSIVE_ORDERS = False
@@ -46,6 +47,11 @@ class Deontay():
             DataEnum.MAX_DRAWDOWN: self.maxDrawdown()
         }
     
+    def timeseries(self):
+        return { 
+            offset: self.offsetTimeseries(offset) for offset in self.offsets()
+        }
+    
     def nominalReturns(self):
         return self._readData("Nominal Returns")
     
@@ -58,37 +64,30 @@ class Deontay():
     def maxDrawdown(self):
         return self._readData("Max Drawdown")
         
+    def offsetTimeseries(self, offset):
+        timeseriesPath = self._cachePath(offset)
+        timeseriesDf = pd.read_csv(timeseriesPath)
+        cols = ['Date', 'Equity']
+        equityCurve = timeseriesDf[cols]
+        return [cols] + equityCurve.values.tolist()
+
+    # CACHE
     def _readData(self, stratName):
+        res = self._read(stratName)
+        return json.loads(res)
+
+    def _cachePath(self, fileName):
         import os
         PATH = os.path.split(os.path.dirname(__file__))[0]
-        cacheFolder = "cache/{}/{}.json".format(self.name(), stratName)
-        with open(os.path.join(PATH, cacheFolder), "r") as resultFile:
-            res = resultFile.read()
-            return json.loads(res)
+        relativeCachePath = "cache/{}/{}.json".format(self.name(), fileName)
+        return os.path.join(PATH, relativeCachePath)
 
-    
-    @staticmethod
-    def timeseries():
-        return { 
-            "All": [
-                ["Day", "", "", "", ""],
-                ["Mon", 20, 28, 38, 45],
-                ["Tue", 31, 38, 55, 66],
-                ["Wed", 50, 55, 77, 80],
-                ["Thu", 77, 77, 66, 50],
-                ["Fri", 68, 66, 22, 15],
-                ["Mon", 20, 28, 38, 45],
-                ["Tue", 31, 38, 55, 66],
-                ["Wed", 50, 55, 77, 80],
-                ["Thu", 77, 77, 66, 50],
-                ["Fri", 68, 66, 22, 15],
-                ["Mon", 20, 28, 38, 45],
-                ["Tue", 31, 38, 55, 66],
-                ["Wed", 50, 55, 77, 80],
-                ["Thu", 77, 77, 66, 50],
-                ["Fri", 68, 66, 22, 15],
-            ]
-        }
+    def _read(self, fileName):
+        cachePath = self._cachePath(fileName)
+        with open(cachePath, "r") as resultFile:
+            res = resultFile.read()
+            return res
+
     
     @staticmethod
     def trades():
