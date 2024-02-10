@@ -5,4 +5,8 @@ class PercentageReturnsCalculator(BaseAnalyticCalculator):
         return "Percentage Returns"
     
     def _run(self, equityCurve):
-        return -0.02
+        equitySeries = equityCurve['Equity']
+        intialEquity = equitySeries.iat[0]
+        finalEquity = equitySeries.iat[-1]
+        returns =  ((finalEquity - intialEquity)/intialEquity) * 100
+        return round(returns, 2)
