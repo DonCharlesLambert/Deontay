@@ -1,4 +1,8 @@
 
+from tsanalytics.nominalreturns import NominalReturnsCalculator
+from tsanalytics.sharperatio import SharpeRatioCalculator
+from tsanalytics.percentagereturns import PercentageReturnsCalculator
+from tsanalytics.maxdrawdown import MaxDrawdownCalculator
 from strategies.alphazero import AlphaZero
 from strategies.retraceentry import RetraceEntry
 from strategies.earlybird import EarlyBird
@@ -28,3 +32,9 @@ class StrategyResponse():
     DATA = "data"
     
 STRATEGIES = [AlphaZero, RetraceEntry, EarlyBird]
+ANALYTICS = [
+    NominalReturnsCalculator,
+    SharpeRatioCalculator,
+    PercentageReturnsCalculator,
+    MaxDrawdownCalculator
+]

@@ -1,26 +1,15 @@
 from backtesting import Strategy
-from .backtest import DeontayStrat
+from .backtest import DeontayStrat, Deontay
 from .const import Assets
 from .logos import BIRD_LOGO
 
-class EarlyBird(DeontayStrat):
+class EarlyBirdStrat(DeontayStrat):
     """ 
     Early Bird detailed description...
     """
     ASSET = Assets.BITCOIN
     EXCLUSIVE_ORDERS = True
 
-    @staticmethod
-    def name():
-        return "Early Bird"
-
-    @staticmethod
-    def image():
-        return BIRD_LOGO
-    
-    @staticmethod
-    def description():
-        return "Anticipates trends through reversal patterns."
 
     def next(self):
         """
@@ -30,3 +19,16 @@ class EarlyBird(DeontayStrat):
         """
         if not self.position:
             self.buy()
+
+class EarlyBird(Deontay):
+    def name(self):
+        return "Early Bird"
+
+    def image(self):
+        return BIRD_LOGO
+    
+    def description(self):
+        return "Anticipates trends through reversal patterns."
+    
+    def strategy(self):
+        return EarlyBirdStrat

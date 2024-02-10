@@ -1,8 +1,8 @@
-from .backtest import DeontayStrat
+from .backtest import DeontayStrat, Deontay
 from .const import Assets
 from .logos import ALPHA_LOGO
 
-class AlphaZero(DeontayStrat):
+class AlphaZeroStrat(DeontayStrat):
     """ 
     Alpha Zero is a BUY and HOLD strategy for bitcoin 
     We regard the performance of bitcoin as the benchmark,
@@ -15,18 +15,6 @@ class AlphaZero(DeontayStrat):
     ASSET = Assets.BITCOIN
     EXCLUSIVE_ORDERS = True
 
-    @staticmethod
-    def name():
-        return "Alpha Zero"
-
-    @staticmethod
-    def image():
-        return ALPHA_LOGO
-    
-    @staticmethod
-    def description():
-        return "Dollar-cost average strategy for a bitcoin believer."
-
     def next(self):
         """
         If no position exists, open one.
@@ -34,3 +22,16 @@ class AlphaZero(DeontayStrat):
         """
         if not self.position:
             self.buy()
+
+class AlphaZero(Deontay):
+    def name(self):
+        return "Alpha Zero"
+
+    def image(self):
+        return ALPHA_LOGO
+    
+    def description(self):
+        return "Dollar-cost average strategy for a bitcoin believer."
+    
+    def strategy(self):
+        return AlphaZeroStrat

@@ -1,4 +1,4 @@
-from const import STRATEGIES, StrategyResponse
+from const import STRATEGIES, ANALYTICS, StrategyResponse
 import os
 from datetime import datetime
 
@@ -8,7 +8,8 @@ class StrategiesBackend():
 
     def getStrategies(self):
         res = {}
-        for strategy in STRATEGIES:
+        for StrategyClass in STRATEGIES:
+            strategy = StrategyClass()
             res[strategy.name()] = {
                 StrategyResponse.IMAGE_SRC: strategy.image(),
                 StrategyResponse.NAME: strategy.name(),
@@ -19,14 +20,16 @@ class StrategiesBackend():
 
 class BacktestBackend():
     def dailyBacktest(self):
-        for strategy in STRATEGIES:
-            backtestResult = strategy.backtest(strategy)
+        for StrategyClass in STRATEGIES:
+            strategy = StrategyClass()
+            backtestResult = strategy.backtest()
             equityCurve = backtestResult._equity_curve
             folderPath = "cache/{}/".format(strategy.name())
             fileName = datetime.today().strftime("%Y_%m_%d") + ".csv"
             if not os.path.exists(folderPath):
                 os.mkdir(folderPath)
             equityCurve.to_csv(folderPath + fileName)
-            # run analytics on bt
-            # store in same folder
+            for AnalyticClass in ANALYTICS:
+                analytic = AnalyticClass(strategy.name(), equityCurve)
+                analytic.run()
             

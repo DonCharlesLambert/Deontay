@@ -43,7 +43,9 @@ class BaseAnalyticCalculator:
         timePeriod = BaseAnalyticCalculator._offsetToTimePeriod(offset)
         if timePeriod[TimePeriod.YEARS] is not None and timePeriod[TimePeriod.MONTHS] is not None:
             periodStart = (datetime.now() - relativedelta(years=timePeriod[TimePeriod.YEARS], months=timePeriod[TimePeriod.MONTHS]))
-            curve['Date'] = curve['Date'].apply(lambda dateString: datetime.strptime(dateString, "%Y-%m-%d"))
+            curve = curve.reset_index()
+            # print(curve['Date'])
+            # curve['Date'] = curve['Date'].apply(lambda dateString: datetime.strptime(dateString, "%Y-%m-%d"))
             slicedCurve = curve.loc[curve['Date'] > periodStart]
         return slicedCurve
     

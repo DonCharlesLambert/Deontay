@@ -1,6 +1,6 @@
 import asyncio
 import tornado
-from backend import StrategiesBackend
+from backend import StrategiesBackend, BacktestBackend
 
 class BaseHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
@@ -31,6 +31,7 @@ def make_app():
     ])
 
 async def main(port=8888):
+    BacktestBackend().dailyBacktest()
     app = make_app()
     print("Service is running at http://localhost:8888/")
     app.listen(8888)
