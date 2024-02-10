@@ -70,7 +70,18 @@ class Deontay():
         cols = ['Date', 'Equity']
         equityCurve = timeseriesDf[cols]
         return [cols] + equityCurve.values.tolist()
+    
+    @staticmethod
+    def trades():
+        return []
 
+    def backtest(self, startDate="", cash=100000, commission=0.002):
+        strategy = self.strategy()
+        startDate = startDate or (datetime.now() - relativedelta(years=5)).strftime("%Y-%m-%d")
+        marketData = yfinance.download(strategy.ASSET, start=startDate) # check if market data in cache
+        res = Backtest(marketData, strategy, cash=cash, commission=commission, exclusive_orders=strategy.EXCLUSIVE_ORDERS)
+        return res.run()
+    
     # CACHE
     def _readData(self, stratName):
         res = self._read(stratName)
@@ -87,15 +98,3 @@ class Deontay():
         with open(cachePath, "r") as resultFile:
             res = resultFile.read()
             return res
-
-    
-    @staticmethod
-    def trades():
-        return []
-
-    def backtest(self, startDate="", cash=100000, commission=0.002):
-        strategy = self.strategy()
-        startDate = startDate or (datetime.now() - relativedelta(years=5)).strftime("%Y-%m-%d")
-        marketData = yfinance.download(strategy.ASSET, start=startDate) # check if market data in cache
-        res = Backtest(marketData, strategy, cash=cash, commission=commission, exclusive_orders=strategy.EXCLUSIVE_ORDERS)
-        return res.run()

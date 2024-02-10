@@ -51,7 +51,7 @@ class BaseAnalyticCalculator:
         timeperiod = timePeriodMap[offset]
         return {TimePeriod.YEARS: timeperiod[0], TimePeriod.MONTHS: timeperiod[1]}
     
-    
+    # CACHE
     def _storeInCache(self, analyticsResult, analyticName=None, jsonDump=True):
         resultJson = json.dumps(analyticsResult) if jsonDump else analyticsResult
         analyticName = analyticName or self._getAnalyticName()
