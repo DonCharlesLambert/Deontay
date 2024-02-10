@@ -15,7 +15,6 @@ class SharpeRatioCalculator(BaseAnalyticCalculator):
         returnRatio =  ((finalEquity - intialEquity)/intialEquity)
 
         dailyReturnSeries = equitySeries.pct_change()
-        meanDailyReturn = dailyReturnSeries.mean()
         stdDailyReturn = dailyReturnSeries.std()
         sharpeRatio = (returnRatio - self._riskFreeRate())/stdDailyReturn
         return round(sharpeRatio, 2)
