@@ -5,7 +5,6 @@ class NominalReturnsCalculator(BaseAnalyticCalculator):
         return "Nominal Returns"
     
     def _run(self, equityCurve):
-        # must ensure curve is in correct date order
-        returns = equityCurve['Equity'].iat[-1] - equityCurve['Equity'].iat[0]
-        formattedReturns = round(returns, 2)
-        return formattedReturns
+        equitySeries = equityCurve['Equity']
+        returns = equitySeries.iat[-1] - equitySeries.iat[0]
+        return round(returns, 2)
