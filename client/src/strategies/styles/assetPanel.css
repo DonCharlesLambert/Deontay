@@ -1,0 +1,40 @@
+.assetPanel{
+    padding: 10px;
+    height: 60px;
+    width: 35%;
+    background-color: var(--deontay-grey);
+    border-radius: 16px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+.assetTitle{
+    font-weight: 350;
+    font-size: 16px;
+}
+
+.assetPanelLogo{
+    height: 85%;
+    margin-right: 7.5px;
+}
+
+.assetTitleDiv{
+    display: flex;
+    height: 40%;
+    align-items: center;
+    justify-content: center;
+}
+.assetReturnsText{
+    margin: 0px;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 100;
+}
+
+.assertReturnsChange{
+    margin: 0px;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    text-align: center;
+}
