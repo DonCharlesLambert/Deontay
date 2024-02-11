@@ -71,8 +71,16 @@ class Deontay():
         timeseriesPath = self._cachePath(offset)
         timeseriesDf = pd.read_csv(timeseriesPath)
         cols = ['Date', 'Equity']
-        equityCurve = timeseriesDf[cols]
+        equityCurve = timeseriesDf[cols].copy()
+        equityCurve['Date'] = equityCurve['Date'].apply(lambda dateString : self._formatDate(offset, dateString))
         return [cols] + equityCurve.values.tolist()
+    
+    def _formatDate(self, offset, dateString):
+        toDateObj = lambda dateString : datetime.strptime(dateString, "%Y-%m-%d")
+        if offset in ["All", "1Y"]:
+            return toDateObj(dateString).strftime("%b %Y")
+        else:
+            return toDateObj(dateString).strftime("%d %b")
     
     @staticmethod
     def trades():

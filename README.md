@@ -13,6 +13,7 @@
  - [x] Write method to shape data in UI friendly format
  - [x] Write strategies
  - [ ] Get featured from backend
+ - [x] improve graph
  - [ ] prevent zoom
  - [ ] Deep refactor the js
  - [ ] Write unit tests

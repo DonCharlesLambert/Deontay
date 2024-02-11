@@ -8,7 +8,7 @@ function FeauredSection({featured, render}) {
     <div>
         <h2> Featured </h2>
         <div style={{"display": "flex", "align-items": "center"}}>
-            <StrategyTitle strategy={featured} logoSize={"5vh"} fontSize={32}/>
+            <StrategyTitle strategy={featured} logoSize={"5vh"} fontSize={24}/>
             <div style={{"margin": "10px"}}>
             <ReturnArrow change={featured.data.analytics.percentageReturns.All}/>
             </div>
@@ -18,10 +18,7 @@ function FeauredSection({featured, render}) {
             <p style={{"marginTop": "0px", "marginBottom": "5px" , "fontWeight": 100, "fontSize": 14}}>{paragraph}</p>
           ))
         }
-        <div className="chartDiv">
-            <Chart data={featured.data.timeseries["All"]}/>
-        </div>
-        
+        <Chart data={featured.data.timeseries["All"]}/>
     </div>
   );
 }

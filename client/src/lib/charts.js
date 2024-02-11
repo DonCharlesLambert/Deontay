@@ -3,12 +3,13 @@ import { Chart } from "react-google-charts";
 
 export const options = {
   legend: "none",
-  bar: { groupWidth: "40%" },
-  candlestick: {
-    fallingColor: { strokeWidth: 0, fill: "#a52714" },
-    risingColor: { strokeWidth: 0, fill: "#0f9d58" },
+  hAxis: {
+    textStyle:{color: '#FFF'}
   },
-  fontColor: "white",
+  vAxis: {
+    textStyle:{color: '#FFF'}
+  },
+  color: "white",
   backgroundColor: "transparent",
 };
 
