@@ -18,6 +18,7 @@ function Header({searchString, setSearchString}) {
             <img id={"logoText"} src={logoText} alt="Deontay, expert Advisor" />
         </div>
         <input
+            id={Math.random()}
             key={"dontChange"}
             type="text"
             placeholder={"Search for Strategies"}

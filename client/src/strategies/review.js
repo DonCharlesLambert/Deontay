@@ -1,6 +1,7 @@
 import './styles/review.css'
 import React, { useState } from 'react';
 import Chart from '../lib/charts'
+import ReturnArrow from './returnArrow';
 
 function StrategiesReview({strategy, goBack}) {
   const [offset, setOffset] = useState("All")
@@ -22,6 +23,7 @@ function StrategiesReview({strategy, goBack}) {
                     <button
                         className={_offset === offset ? "currentOffsetButton" : "offsetButton"}
                         onClick={() => setOffset(_offset)}
+                        key={Math.random()}
                     >
                         {_offset}
                     </button>
@@ -29,18 +31,15 @@ function StrategiesReview({strategy, goBack}) {
             </div>
         </div>
         <div className="analyticsDiv">
-            <div className="analyticRow">
-                <p className="analyticName"> Returns </p>
-                <p className="analyticValue"> {strategy.data.analytics.nominalReturns[offset]}</p>
-            </div>
-            <div className="analyticRow">
-                <p className="analyticName"> Sharpe Ratio </p>
-                <p className="analyticValue"> {strategy.data.analytics.sharpeRatio[offset]}</p>
-            </div>
-            <div className="analyticRow">
-                <p className="analyticName"> Max Drawdown </p>
-                <p className="analyticValue"> {strategy.data.analytics.maxDrawdown[offset] + "%"}</p>
-            </div>
+            <p className="analyticName"> Returns </p>
+            <p className="analyticValue"> {strategy.data.analytics.nominalReturns[offset]}</p>
+            <ReturnArrow change={strategy.data.analytics.percentageReturns[offset]}/>
+            <p className="analyticName"> Sharpe Ratio </p>
+            <p className="analyticValue"> {strategy.data.analytics.sharpeRatio[offset]}</p>
+            <div></div>
+            <p className="analyticName"> Max Drawdown </p>
+            <p className="analyticValue"> {strategy.data.analytics.maxDrawdown[offset] + "%"}</p>
+            <div></div>
         </div>
         <div className="chartDiv">
             <Chart data={strategy.data.timeseries[offset]}/>

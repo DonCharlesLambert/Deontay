@@ -69,12 +69,9 @@
 .analyticsDiv{
     margin-top: 5%;
     margin-left: 5%;
-}
-
-.analyticRow{
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 .analyticName{
@@ -86,7 +83,7 @@
 
 .analyticValue{
     font-weight: 200;
-    text-align: left;
+    text-align: right;
     margin: 0px 1px;
     font-family: 'Montserrat';
 }

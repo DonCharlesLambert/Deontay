@@ -1,10 +1,7 @@
 import './styles/panel.css'
+import ReturnArrow from './returnArrow'
 
 function StrategyPanel({selectStrategy, strategy}) {
-  const change = strategy.data.analytics.percentageReturns.All
-  const changeClass = change < 0 ? "panelNegative" : "panelPositive"
-  const changeArrow = change < 0 ? "▼" : "▲"
-  const changeSign = change < 0 ? "" : "+"
   return (
     <div className="strategiesPanel" onClick={() => selectStrategy(strategy)}>
         <div className="panelTitleDiv">
@@ -16,7 +13,7 @@ function StrategyPanel({selectStrategy, strategy}) {
             <p className="panelReturnsText"> Returns </p>
             <div className="panelFiguresDiv">
                 <p className="panelReturnsFigure"> {strategy.data.analytics.nominalReturns.All} </p>
-                <p className={`panelReturnsChange ${changeClass}`}> {changeArrow} {changeSign}{change}% </p>
+                <ReturnArrow change={strategy.data.analytics.percentageReturns.All}/>
             </div>
         </div>
     </div>

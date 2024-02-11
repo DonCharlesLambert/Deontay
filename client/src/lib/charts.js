@@ -13,7 +13,6 @@ export const options = {
 };
 
 function CandlestickChart({data}) {
-  console.log(data.length)
   return (
     <Chart
       chartType="LineChart"

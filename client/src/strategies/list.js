@@ -34,7 +34,6 @@ function StrategiesList({searchString, selectStrategy}) {
       (response) => response.json()
     ).then(
       (data) => {
-        console.log(data)
         setAssets(Object.values(data))
       }
     )}, []
