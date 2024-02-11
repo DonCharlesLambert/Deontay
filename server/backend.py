@@ -48,7 +48,7 @@ class AssetBackend():
                 "name": ASSET_NAME_MAP[asset],
                 "imagesrc": ASSET_IMAGE_MAP[asset],
                 "price": round(tPrice, 2),
-                "change": round((t1Price/tPrice) - 1, 2)
+                "change": round(((t1Price/tPrice) - 1) * 100, 2)
             }
         return res
             

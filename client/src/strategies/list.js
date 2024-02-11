@@ -37,7 +37,7 @@ function StrategiesList({searchString, selectStrategy}) {
         console.log(data)
         setAssets(Object.values(data))
       }
-    )}
+    )}, []
   )
 
   return (
