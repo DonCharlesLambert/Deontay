@@ -30,9 +30,7 @@ Open port 8888 / turn off private firewall / make sure current connection is pri
 
 #### 🥊 Adding More Strategies & TS Analytics
 
-<img src="
-https://raw.githubusercontent.com/DonCharlesLambert/Deontay/main/misc/forreadme/compressed-phone.gif?token=GHSAT0AAAAAACMOKT5NRRWAS4AOGTAZLLJUZOJDUDQ
-"
+<img src="https://github.com/DonCharlesLambert/Deontay/blob/main/misc/forreadme/compressed-phone.gif?raw=true"
 style="margin:auto"
 height="600px"
 alt="Deontay used on iPhone X"
