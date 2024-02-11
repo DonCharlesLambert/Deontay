@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import './styles/list.css'
 import { ASSETS_ENDPOINT, STRATEGIES_ENDPOINT } from '../api/const'
-import { SOL_IMAGE, BITCOIN_IMAGE, ETH_IMAGE, USDT_IMAGE } from './img'
 import StrategyPanel from './panel'
 import AssetPanel from './assetpanel'
 
 function StrategiesList({searchString, selectStrategy}) {
   const [strategies, setStrategies] = useState([])
+  const [assets, setAssets] = useState([])
   useEffect(() => {
     fetch(STRATEGIES_ENDPOINT, {
         mode: 'cors',
@@ -25,32 +25,20 @@ function StrategiesList({searchString, selectStrategy}) {
     )
   }, [searchString])
 
-  const assets = [
-    {
-      imagesrc: BITCOIN_IMAGE,
-      name: "BTC",
-      price: 47585.15,
-      change: -6.93
-    },
-    {
-      imagesrc: ETH_IMAGE,
-      name: "ETH",
-      price: 17585,
-      change: 2.27
-    },
-    {
-      imagesrc: SOL_IMAGE,
-      name: "SOL",
-      price: 90.15,
-      change: -0.23
-    },
-    {
-      imagesrc: USDT_IMAGE,
-      name: "UST",
-      price: 0.98,
-      change: 0.23
-    }
-  ]
+  useEffect(() => {
+    fetch(ASSETS_ENDPOINT, {
+        mode: 'cors',
+        method: 'GET',
+        headers: {'Content-Type':'application/json'}
+    }).then(
+      (response) => response.json()
+    ).then(
+      (data) => {
+        console.log(data)
+        setAssets(Object.values(data))
+      }
+    )}
+  )
 
   return (
     <div className="strategiesList">

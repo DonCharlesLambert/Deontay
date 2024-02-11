@@ -1,6 +1,6 @@
 import asyncio
 import tornado
-from backend import StrategiesBackend, BacktestBackend
+from backend import StrategiesBackend, BacktestBackend, AssetBackend
 
 class BaseHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
@@ -22,12 +22,19 @@ class StrategiesHandler(BaseHandler):
         strategies = self.backend.getStrategies()
         self.write(strategies)
 
-    
-# add a warmup that checks if strategy results are cached
+class AssetsHandler(BaseHandler):
+    def initialize(self):
+        self.backend = AssetBackend()
+
+    def get(self):
+        # 'http://localhost:8888/get-assets'
+        assets = self.backend.getAssets()
+        self.write(assets)
 
 def make_app():
     return tornado.web.Application([
         (r"/get-strategies", StrategiesHandler),
+        (r"/get-assets", AssetsHandler),
     ])
 
 async def main(port=8888):
