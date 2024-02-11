@@ -13,3 +13,6 @@
  - [x] Write method to shape data in UI friendly format
  - [ ] Write strategies
  - [ ] SEPARATE INTO MICROSERVICES ?? (base, strategies, tsanalytics)
+
+
+Open port 8888 / turn off private firewall / make sure current connection is private
