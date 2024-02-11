@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import '../styles/list.css'
 import { ASSETS_ENDPOINT, STRATEGIES_ENDPOINT } from '../../api/const.js'
-import FeauredSection from '../organisms/featured.js'
-import AssetsSection from '../organisms/assets.js'
-import StrategiesSection from '../organisms/strategies.js'
+import FeauredSection from '../compounds/featured.js'
+import AssetsSection from '../compounds/assets.js'
+import StrategiesSection from '../compounds/strategies.js'
 import Spinner from '../atoms/spinner.js'
 
 function StrategiesList({searchString, selectStrategy}) {

@@ -1,6 +1,6 @@
 import ReturnArrow from '../atoms/returnArrow'
 import StrategyTitle from '../atoms/strategyTitle';
-import Chart from '../../lib/charts'
+import Chart from '../atoms/charts'
 
 function FeauredSection({featured, render}) {
   if (!render){return null}

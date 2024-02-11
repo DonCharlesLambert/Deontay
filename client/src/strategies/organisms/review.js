@@ -1,6 +1,6 @@
 import '../styles/review.css'
 import React, { useState } from 'react';
-import Chart from '../../lib/charts'
+import Chart from '../atoms/charts'
 import ReturnArrow from '../atoms/returnArrow';
 import StrategyTitle from '../atoms/strategyTitle';
 
