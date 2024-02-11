@@ -1,13 +1,11 @@
-import './styles/panel.css'
-import ReturnArrow from './returnArrow'
+import '../styles/panel.css'
+import ReturnArrow from '../atoms/returnArrow'
+import StrategyTitle from '../atoms/strategyTitle';
 
 function StrategyPanel({selectStrategy, strategy}) {
   return (
     <div className="strategiesPanel" onClick={() => selectStrategy(strategy)}>
-        <div className="panelTitleDiv">
-            <img src={strategy.imagesrc} className="panelLogo" alt={`logo for ${strategy.name} strategy`}/>
-            <h3 className="panelTitle"> {strategy.name}</h3>
-        </div>
+        <StrategyTitle strategy={strategy}/>
         <p className="panelDescription"> {strategy.description} </p>
         <div className="panelReturnsDiv">
             <p className="panelReturnsText"> Returns </p>

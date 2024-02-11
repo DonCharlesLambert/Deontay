@@ -5,12 +5,10 @@
 .headerDiv{
     margin-top: 5%;
     margin-left: 5%;
-
 }
 
 .titleDiv {
-    display: flex;
-    align-items: center;
+    height: 12.5vh;
 }
 
 .backButton{

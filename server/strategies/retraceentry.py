@@ -52,5 +52,17 @@ class RetraceEntry(Deontay):
     def description(self):
         return "Trend-following strategy entering on retracement."
     
+    def details(self):
+        return [""" 
+        Retrace Entry is an aggresive trend following strategy which aims to benefit from 
+        strength of established trends. The strategy uses the Average Directional Indicator (ADI),
+        the Plus Directional Indicator (PDI) and the Minus Directional Indicator (MDI).
+        ""","""
+        The ADI indicates the strength of the trend while the PDI and the MDI indicate the direction.
+        Once the ADX has crossed the "mid level" the trend is strong and the strategy enters in the
+        direction of the trend. After crossing the "scale level" we scale in on the position, increasing
+        the size. Once the ADX indicates that the trend is slowing down or reversing we exit the trade.
+        """]
+    
     def strategy(self):
         return RetraceEntryStrat

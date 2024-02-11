@@ -1,6 +1,5 @@
-import './styles/panel.css'
-import './styles/assetPanel.css'
-import ReturnArrow from './returnArrow'
+import '../styles/assetPanel.css'
+import ReturnArrow from '../atoms/returnArrow'
 
 function AssetPanel({asset}) {
   return (

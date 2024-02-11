@@ -52,6 +52,7 @@ class StrategyResponse():
     IMAGE_SRC = "imagesrc"
     NAME = "name"
     DESCRIPTION = "description"
+    DETAILS = "details"
     DATA = "data"
     
 STRATEGIES = [AlphaZero, RetraceEntry, EarlyBird]

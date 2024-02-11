@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import HeaderComponent from './header/header'
-import StrategiesList from './strategies/list'
-import StrategiesReview from './strategies/review'
+import StrategiesList from './strategies/screens/list'
+import StrategiesReview from './strategies/screens/review'
 import SlideIn from './lib/slide-in';
 import './App.css';
 

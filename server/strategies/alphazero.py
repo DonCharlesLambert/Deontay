@@ -33,5 +33,13 @@ class AlphaZero(Deontay):
     def description(self):
         return "Dollar-cost average strategy for a bitcoin believer."
     
+    def details(self):
+        return [""" 
+        Alpha Zero is a BUY and HOLD strategy for bitcoin. 
+        Other strategies can be viewed as methods to hedge against the
+        volatility and market risk of bitcoin despite providing
+        weaker returns.
+        """]
+    
     def strategy(self):
         return AlphaZeroStrat

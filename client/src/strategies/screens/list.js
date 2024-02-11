@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
-import './styles/list.css'
-import { ASSETS_ENDPOINT, STRATEGIES_ENDPOINT } from '../api/const'
-import StrategyPanel from './panel'
-import AssetPanel from './assetpanel'
+import '../styles/list.css'
+import { ASSETS_ENDPOINT, STRATEGIES_ENDPOINT } from '../../api/const.js'
+
+import FeauredSection from '../organisms/featured.js'
+import AssetsSection from '../organisms/assets.js'
+import StrategiesSection from '../organisms/strategies.js'
 
 function StrategiesList({searchString, selectStrategy}) {
   const [strategies, setStrategies] = useState([])
   const [assets, setAssets] = useState([])
+  const [featured, setFeatured] = useState([])
+
   useEffect(() => {
     fetch(STRATEGIES_ENDPOINT, {
         mode: 'cors',
@@ -16,7 +20,9 @@ function StrategiesList({searchString, selectStrategy}) {
       (response) => response.json()
     ).then(
       (data) => {
-        setStrategies(Object.values(data).filter((stratData) => {
+        data = Object.values(data)
+        setFeatured(data.find(e => !!e))
+        setStrategies(data.filter((stratData) => {
           if(searchString === ""){return true}
           if(stratData.name.toLowerCase().includes(searchString.toLowerCase())){return true}
           return false
@@ -38,27 +44,13 @@ function StrategiesList({searchString, selectStrategy}) {
       }
     )}, []
   )
-
+  const renderAssets = searchString === "" && assets
+  const renderFeatured = searchString === "" && featured.data
   return (
     <div className="strategiesList">
-      <h2> Assets </h2>
-      <div style={{display: 'flex', overflowX: 'scroll'}}>
-        {assets.map((asset) => (
-          <AssetPanel
-            key={Math.random()}
-            asset={asset}
-          />
-        ))}
-      </div>
-
-      <h2> Strategies </h2>
-      {strategies.map((strategy) => (
-        <StrategyPanel
-          key={Math.random()}
-          selectStrategy={selectStrategy}
-          strategy={strategy}
-        />
-      ))}
+      <AssetsSection assets={assets} render={renderAssets}/>
+      <FeauredSection featured={featured} render={renderFeatured}/>
+      <StrategiesSection strategies={strategies} selectStrategy={selectStrategy}/>
     </div>
   );
 }

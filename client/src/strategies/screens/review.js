@@ -1,7 +1,8 @@
-import './styles/review.css'
+import '../styles/review.css'
 import React, { useState } from 'react';
-import Chart from '../lib/charts'
-import ReturnArrow from './returnArrow';
+import Chart from '../../lib/charts'
+import ReturnArrow from '../atoms/returnArrow';
+import StrategyTitle from '../atoms/strategyTitle';
 
 function StrategiesReview({strategy, goBack}) {
   const [offset, setOffset] = useState("All")
@@ -12,10 +13,7 @@ function StrategiesReview({strategy, goBack}) {
         </div>
         <div className="headerDiv">
             <div>
-                <div className="titleDiv">
-                    <img className="logo" src={strategy.imagesrc} alt={`logo for ${strategy.name} strategy`}/>
-                    <h3 className="title"> {strategy.name} </h3>
-                </div>
+                <StrategyTitle strategy={strategy} logoSize={'5vh'} fontSize={"32px"}/>
                 <p className="description"> {strategy.description} </p>
             </div>
             <div className="buttonDiv">

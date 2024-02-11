@@ -47,5 +47,16 @@ class EarlyBird(Deontay):
     def description(self):
         return "Anticipates trends through reversal patterns."
     
+    def details(self):
+        return [""" 
+            Early Bird uses technial analysis to anticipates trends and enter during trend
+            reversals. The strategy is primarily reliant on the RSI, an indicator used to
+            to measure the magnitude of the assets recent price change.
+        ""","""
+            If the asset is determined to be over sold, we enter a long position. We use
+            assets with historically strong performance and have a long bias so open no
+            short positions. We use overbought conditions to close our positions.
+        """]
+    
     def strategy(self):
         return EarlyBirdStrat

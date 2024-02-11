@@ -18,6 +18,7 @@ class StrategiesBackend():
                 StrategyResponse.IMAGE_SRC: strategy.image(),
                 StrategyResponse.NAME: strategy.name(),
                 StrategyResponse.DESCRIPTION: strategy.description(),
+                StrategyResponse.DETAILS: strategy.details(),
                 StrategyResponse.DATA: strategy.data()
             }
         return res

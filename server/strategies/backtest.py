@@ -22,6 +22,9 @@ class Deontay():
     def description(self):
         return NotImplementedError("Cannot call description func from DeontayStrat, implement method in subclass")
     
+    def details(self):
+        return NotImplementedError("Cannot call description func from DeontayStrat, implement method in subclass")
+    
     def data(self):
         return NotImplementedError("Cannot call data func from DeontayStrat, implement method in subclass")
     

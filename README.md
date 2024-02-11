@@ -11,7 +11,12 @@
  - [x] Call backtest on server start 
  - [ ] with timer
  - [x] Write method to shape data in UI friendly format
- - [ ] Write strategies
+ - [x] Write strategies
+ - [ ] Get featured from backend
+ - [ ] prevent zoom
+ - [ ] Deep refactor the js
+ - [ ] Write unit tests
+ - [ ] Dockerise
  - [ ] SEPARATE INTO MICROSERVICES ?? (base, strategies, tsanalytics)
 
 
