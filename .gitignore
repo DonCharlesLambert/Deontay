@@ -23,4 +23,5 @@
 /client/yarn-error.log*
 
 # pycache
-*/__pycache__/*
+__pycache__/
+cache/
