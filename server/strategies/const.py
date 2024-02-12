@@ -1,5 +1,6 @@
 from enum import Enum
 
+# repeated -- switch occurrences to use base.const
 class Assets():
     BITCOIN = "BTC-USD"
     

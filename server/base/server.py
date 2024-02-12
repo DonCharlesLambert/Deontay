@@ -1,6 +1,6 @@
 import asyncio
 import tornado
-from backend import StrategiesBackend, BacktestBackend, AssetBackend
+from base.backend import StrategiesBackend, BacktestBackend, AssetBackend
 
 class BaseHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
