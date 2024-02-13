@@ -1,7 +1,7 @@
 
  # Todo
 
- - [x] Write dummy strategies for other strats, include meta data
+- [x] Write dummy strategies for other strats, include meta data
 - [x] Include meta data on base class too
 - [x] Replace STRATEGIES dict with list of Strategies classes
 - [x] Remove server.media.logos
@@ -15,16 +15,20 @@
 - [x] Write strategies
 - [x] improve graph
 - [x] prevent zoom
-- [ ] Deep refactor the js
+- [x] Deep refactor the js
 - [ ] Write unit tests
 - [ ] Dockerise
 - [ ] SEPARATE INTO MICROSERVICES ?? (base, strategies, tsanalytics)
 
 Open port 8888 / turn off private firewall / make sure current connection is private for LAN
 
+run
+deontay/server> python3 -m base.server
+deontay/client> npm start
+
 test
-python3 -m coverage run -m unittest
-python3 -m coverage report
+deontay/server> python3 -m coverage run -m unittest
+deontay/server> python3 -m coverage report
 
 ## Deontay
 
