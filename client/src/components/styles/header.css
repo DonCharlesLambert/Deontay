@@ -40,6 +40,6 @@
     font-family: 'Noto Sans';
     color: var(--deontay-white);
     padding-left: 30px;
-    background: url(../images/magnifying-glass.png) no-repeat scroll 7px 7px;
+    background: url(../../images/magnifying-glass.png) no-repeat scroll 7px 7px;
     background-size: 20px;
 }

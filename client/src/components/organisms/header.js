@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import logo from '../images/logonn-transparent.png';
-import logoText from '../images/texthd-transparent.png';
-import './header.css'
+import logo from '../../images/logonn-transparent.png';
+import logoText from '../../images/texthd-transparent.png';
+import '../styles/header.css'
 
 function Header({searchString, setSearchString}) {
   const [localString, setLocalString] = useState(searchString);
