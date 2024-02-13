@@ -25,3 +25,4 @@
 # pycache
 __pycache__/
 cache/
+/server/.coverage

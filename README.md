@@ -22,6 +22,10 @@
 
 Open port 8888 / turn off private firewall / make sure current connection is private for LAN
 
+test
+python3 -m coverage run -m unittest
+python3 -m coverage report
+
 ## Deontay
 
 #### 🌎 What is Deontay?

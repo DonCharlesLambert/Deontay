@@ -3,3 +3,5 @@ tornado
 backtesting
 yfinance
 ta
+mock
+coverage
