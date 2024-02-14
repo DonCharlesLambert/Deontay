@@ -20,16 +20,13 @@ class Deontay():
         raise NotImplementedError("Cannot call image func from DeontayStrat, implement method in subclass")
     
     def description(self):
-        return NotImplementedError("Cannot call description func from DeontayStrat, implement method in subclass")
+        raise NotImplementedError("Cannot call description func from DeontayStrat, implement method in subclass")
     
     def details(self):
-        return NotImplementedError("Cannot call description func from DeontayStrat, implement method in subclass")
-    
-    def data(self):
-        return NotImplementedError("Cannot call data func from DeontayStrat, implement method in subclass")
-    
+        raise NotImplementedError("Cannot call description func from DeontayStrat, implement method in subclass")
+
     def strategy(self):
-        return NotImplementedError("Cannot call strategy func from DeontayStrat, implement method in subclass")
+        raise NotImplementedError("Cannot call strategy func from DeontayStrat, implement method in subclass")
 
     def data(self):
         return {
@@ -52,7 +49,7 @@ class Deontay():
     
     def timeseries(self):
         return { 
-            offset: self.offsetTimeseries(offset) for offset in self.offsets()
+            offset: self._offsetTimeseries(offset) for offset in self.offsets()
         }
     
     def nominalReturns(self):
@@ -67,7 +64,7 @@ class Deontay():
     def maxDrawdown(self):
         return self._readData("Max Drawdown")
         
-    def offsetTimeseries(self, offset):
+    def _offsetTimeseries(self, offset):
         timeseriesPath = self._cachePath(offset)
         timeseriesDf = pd.read_csv(timeseriesPath)
         cols = ['Date', 'Equity']
