@@ -43,3 +43,36 @@ style="margin:auto"
 height="600px"
 alt="Deontay used on iPhone X"
 />
+#### Dev Practices
+
+Name                                    Stmts   Miss  Cover
+-----------------------------------------------------------
+base\__init__.py                            0      0   100%
+base\backend.py                            53      2    96%
+base\const.py                              39      0   100%
+base\server.py                             35      3    91%
+strategies\__init__.py                      0      0   100%
+strategies\alphazero.py                    20      1    95%
+strategies\backtest.py                     72      2    97%
+strategies\const.py                        12      0   100%
+strategies\earlybird.py                    34      3    91%
+strategies\logos.py                         7      0   100%
+strategies\retraceentry.py                 39      1    97%
+tests\__init__.py                           0      0   100%
+tests\base\__init__.py                      0      0   100%
+tests\base\test_backend.py                 58      1    98%
+tests\base\test_server.py                  27      1    96%
+tests\strategies\__init__.py                0      0   100%
+tests\strategies\test_backtest.py          75      1    99%
+tests\strategies\test_strategies.py        71      0   100%
+tests\tsanalytics\__init__.py               0      0   100%
+tests\tsanalytics\test_tsanalytics.py      85      1    99%
+tsanalytics\__init__.py                     0      0   100%
+tsanalytics\const.py                        9      0   100%
+tsanalytics\lib.py                         44      2    95%
+tsanalytics\maxdrawdown.py                 11      0   100%
+tsanalytics\nominalreturns.py               8      0   100%
+tsanalytics\percentagereturns.py           10      0   100%
+tsanalytics\sharperatio.py                 16      0   100%
+-----------------------------------------------------------
+TOTAL                                     725     18    98%
