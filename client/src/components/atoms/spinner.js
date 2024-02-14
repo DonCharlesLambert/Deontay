@@ -1,9 +1,13 @@
 
 import { SpinnerCircular } from 'spinners-react';
 
+const spinnerStyles = {
+    "margin": "50% auto"
+}
+
 function Spinner() {
     return (
-        <div style={{"margin": "50% auto" }}>
+        <div style={spinnerStyles}>
             <SpinnerCircular color={"white"}/>
         </div>
     );
