@@ -49,10 +49,6 @@ Retrace Entry is an aggresive trend following strategy which aims to benefit fro
 The ADI indicates the strength of the trend while the PDI and the MDI indicate the direction. Once the ADX has crossed the "mid level" the trend is strong and the strategy enters in the direction of the trend. After crossing the "scale level" we scale in on the position, increasing the size. Once the ADX indicates that the trend is slowing down or reversing we exit the trade.
 This strategy has the advantage of low max drawdown, less than 10% over the early 2019-2024 period, despite the intense volatility of the underlying asset. This is in trade off 
 
-#### 🏛️ Deontay Architecture
-Deontay uses a client-server architecture. The server, which uses Python's tornado, provides strategy and crypto-asset data to the client which runs React.js.
-The tornado service is designed to be run once a day. At launch the equity curve and timeseries analytics are calculated for each strategy and for each time period using T-1 data. These are cached providing quick response time for client queries throughout the day. This cache is then invalidated the next day when the service is torn down and restarted.
-
 #### 🏃 Running Deontay
 Deontay will be dockerized soon...
 ##### Requirements
@@ -84,8 +80,17 @@ deontay/server> python3 -m coverage report
 
 
 #### 🥊 Onboarding Strategies
-...TBC
+Within the ```deontay/server/``` folder
+ 1. Write the strategy in ```strategies.strategyname``` which would be a new file
+ 2. Import the strategy in ```base.const```
+ 3. Add the strategy in ```STRATEGIES``` within ```base.const```
 
+That is all! On next launch or restart of the server you will be able to see the new strategies returns, equity curve and timeseries analytics data. You can also use Deontay to easily compare your new strategy with existing strategies!
+
+
+#### 🏛️ Deontay Architecture
+Deontay uses a client-server architecture. The server, which uses Python's tornado, provides strategy and crypto-asset data to the client which runs React.js.
+The tornado service is designed to be run once a day. At launch the equity curve and timeseries analytics are calculated for each strategy and for each time period using T-1 data. These are cached providing quick response time for client queries throughout the day. This cache is then invalidated the next day when the service is torn down and restarted.
 
 
  # Todo
